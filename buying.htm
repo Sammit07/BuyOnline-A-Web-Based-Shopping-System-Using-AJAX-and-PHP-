@@ -1,0 +1,137 @@
+<?php
+session_start();  // Start the session
+
+// Check if the customer is logged in by checking the session variable
+if (!isset($_SESSION['customer_id'])) {
+    // If not logged in, redirect to the login page
+    header("Location: login.htm");
+    exit;
+}
+?>
+
+<!-- 
+    Name: Sammit Rajaram Raut
+    Student ID: 104691259
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Items</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .cart {
+            margin-top: 30px;
+        }
+
+        .total {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #3498db;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        /* Logout link styling */
+        .logout {
+            margin-top: 20px;
+            text-align: right;
+            margin-right: 20px;
+        }
+
+        .logout a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .logout a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <!-- JavaScript file for handling catalog and cart -->
+    <script src="buying.js"></script>
+</head>
+<body>
+
+    <!-- Logout link -->
+    <div class="logout">
+        <a href="javascript:void(0);" onclick="handleLogout()">Logout</a>
+    </div>
+    
+    <!-- Include the JavaScript file for handling the logout process -->
+    <script src="logoutCustomer.js"></script>    
+
+
+    <h1>Shopping Catalog</h1>
+    <table id="catalogTable">
+        <tr>
+            <th>Item Number</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Add</th>
+        </tr>
+        <!-- Catalog items will be dynamically inserted here -->
+    </table>
+
+    <h1>Shopping Cart</h1>
+    <table id="cartTable">
+        <tr>
+            <th>Item Number</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Remove</th>
+        </tr>
+        <!-- Cart items will be dynamically inserted here -->
+    </table>
+
+    <div class="total">Total: $<span id="totalPrice">0</span></div>
+
+    <div class="buttons">
+        <!-- Buttons for confirming or canceling the purchase -->
+        <button onclick="confirmPurchase()">Confirm Purchase</button>
+        <button onclick="cancelPurchase()">Cancel Purchase</button>
+    </div>
+
+</body>
+</html>

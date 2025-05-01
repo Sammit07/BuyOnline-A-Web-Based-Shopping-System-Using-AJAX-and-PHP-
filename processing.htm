@@ -1,0 +1,124 @@
+<?php
+
+session_start();  // Start session for manager login
+
+// Check if the manager is logged in
+if (!isset($_SESSION['manager_id'])) {
+    header("Location: mlogin.htm");
+    exit;
+}
+?>
+
+<!-- 
+    Name: Sammit Rajaram Raut
+    Student ID: 104691259
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing Sales</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .navigation a {
+            margin: 0 15px;
+            color: #800080;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .navigation a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .logout {
+            text-align: right;
+            margin-right: 20px;
+            margin-top: 20px;
+        }
+
+        .logout a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .logout a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="navigation">
+        <a href="listing.htm">Listing</a>
+        <a href="processing.htm">Processing</a>
+        <a href="logout.htm">Logout</a>
+    </div>
+
+    <h1>Processing Form</h1>
+
+    <!-- Table to display items with non-zero sold quantities -->
+    <table id="processingTable">
+        <thead>
+            <tr>
+                <th>Item Number</th>
+                <th>Item Name</th>
+                <th>Price</th>
+                <th>Quantity Available</th>
+                <th>Quantity on Hold</th>
+                <th>Quantity Sold</th>
+            </tr>
+        </thead>
+        <tbody id="processingTableBody">
+            <!-- Rows will be dynamically inserted here -->
+        </tbody>
+    </table>
+
+    <button id="processBtn" onclick="processItems()">Process</button>
+
+    <!-- JavaScript for fetching and processing items -->
+    <script src="processItems.js"></script>
+</body>
+</html>

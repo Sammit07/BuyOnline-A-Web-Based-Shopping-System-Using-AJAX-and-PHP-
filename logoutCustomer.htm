@@ -1,0 +1,54 @@
+<!-- 
+    Name: Sammit Rajaram Raut
+    Student ID: 104691259
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Logout</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Thank You for Shopping!</h1>
+        <p>Customer ID: <strong id="customerId">Guest</strong></p>
+        <p>You have been logged out successfully.</p>
+        <a href="login.htm">Login again</a>
+    </div>
+
+    <script>
+        // Get customer ID from URL and display it
+        var urlParams = new URLSearchParams(window.location.search);
+        var customerId = urlParams.get('customer_id') || 'Guest';
+        document.getElementById('customerId').innerText = customerId;
+    </script>
+</body>
+</html>

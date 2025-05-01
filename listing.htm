@@ -1,0 +1,133 @@
+<!-- 
+    Name: Sammit Rajaram Raut
+    Student ID: 104691259
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Item - Listing</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Container styling for the form */
+        .container {
+            display: inline-block;
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+        }
+
+        /* Styling the table-like structure for form elements */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="text"], input[type="number"], textarea {
+            width: 98%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #555;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+
+        .nav-links {
+            margin-bottom: 20px;
+        }
+
+        .nav-links a {
+            margin-right: 20px;
+            color: #551A8B;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .success, .error {
+            color: green;
+            margin-top: 10px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+
+    <!-- Include the JavaScript file for adding items -->
+    <script src="addItem.js"></script>
+</head>
+<body>
+
+    <!-- Navigation links at the top -->
+    <div class="nav-links">
+        <a href="listing.htm">Listing</a>
+        <a href="processing.htm">Processing</a>
+        <a href="logout.htm">Logout</a>
+    </div>
+
+    <h1>Add new item</h1>
+
+    <div class="container">
+        <!-- Form for adding items, styled as a table structure -->
+        <form id="itemForm" onsubmit="return addItem();">
+            <table>
+                <tr>
+                    <td><label for="item_name">Item name:</label></td>
+                    <td><input type="text" id="item_name" name="item_name" placeholder="Item Name" required></td>
+                </tr>
+                <tr>
+                    <td><label for="price">Item price:</label></td>
+                    <td><input type="number" id="price" name="price" placeholder="Item Price" required></td>
+                </tr>
+                <tr>
+                    <td><label for="quantity">Item quantity:</label></td>
+                    <td><input type="number" id="quantity" name="quantity" placeholder="Item Quantity" required></td>
+                </tr>
+                <tr>
+                    <td><label for="description">Item description:</label></td>
+                    <td><textarea id="description" name="description" placeholder="Item Description" rows="4" required></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <button type="submit">Add item</button>
+                        <button type="reset">Reset</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        <!-- Success or error messages display area -->
+        <div class="success" id="successMsg"></div>
+        <div class="error" id="errorMsg"></div>
+    </div>
+
+</body>
+</html>

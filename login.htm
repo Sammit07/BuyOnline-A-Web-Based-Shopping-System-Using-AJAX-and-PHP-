@@ -1,0 +1,86 @@
+<!-- 
+    Name: Sammit Rajaram Raut
+    Student ID: 104691259
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Login</title>
+
+    <style>
+        /* Basic styling for body and container */
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        /* Style for the container holding the login form */
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        /* Styling the email and password input fields */
+        input[type="email"], input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Style for the submit button */
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Button hover effect */
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Error message styling */
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+
+    <!-- Including the JavaScript file for login functionality -->
+    <script src="loginCustomer.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Customer Login</h1>
+        <!-- Login form for customers -->
+        <form id="loginForm" onsubmit="return loginCustomer();">
+            <!-- Input field for email -->
+            <input type="email" id="email" name="email" placeholder="Email" required><br>
+            <!-- Input field for password -->
+            <input type="password" id="password" name="password" placeholder="Password" required><br>
+            <!-- Submit button for login -->
+            <button type="submit">Login</button>
+        </form>
+        <!-- Error message display area -->
+        <div class="error" id="errorMsg"></div>
+        
+        <!-- Back to BuyOnline link -->
+        <div class="back-link">
+            <a href="BuyOnline.htm">Back to BuyOnline</a>
+        </div>
+    </div>
+</body>
+</html>
